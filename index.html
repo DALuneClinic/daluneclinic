@@ -3,175 +3,584 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luminous Aesthetics | Premium Beauty Treatments</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Luminous Aesthetics | Advanced Skin Treatments London</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary: #9E7B9B;
+            --secondary: #D4C1D4;
+            --dark: #2D2D2D;
+            --light: #F9F6F9;
+            --accent: #C4A8C1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* About */
+        .about {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Services */
+        .services {
+            padding: 100px 0;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+        }
+        
+        .accordion {
+            margin-top: 15px;
+        }
+        
+        .accordion-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .accordion-header {
+            padding: 10px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .accordion-header:after {
+            content: '+';
+            font-size: 1.2rem;
+        }
+        
+        .accordion-header.active:after {
+            content: '-';
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-left: 10px;
+        }
+        
+        /* Gallery */
+        .gallery {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay h3 {
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay h3 {
+            transform: translateY(0);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1>Luminous<span>Aesthetics</span></h1>
-            </div>
-            <nav class="navbar">
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Luminous<span>Aesthetics</span></div>
+            <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="https://booking.setmore.com/scheduleappointment/XXXXXXXX" class="btn book-now-btn">Book Now</a></li>
+                    <li><a href="https://booking.setmore.com" class="btn">Book Now</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h2>Discover Your Radiance</h2>
                 <p>Premium aesthetic treatments tailored to enhance your natural beauty</p>
-                <a href="https://booking.setmore.com/scheduleappointment/XXXXXXXX" class="btn">Book Your Consultation</a>
+                <a href="https://booking.setmore.com" class="btn">Book Your Consultation</a>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section class="about-section" id="about">
+    <!-- About -->
+    <section class="about" id="about">
         <div class="container">
             <div class="section-title">
                 <h2>About Luminous Aesthetics</h2>
-                <div class="underline"></div>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Your Journey to Confidence Starts Here</h3>
                     <p>Founded in 2015, Luminous Aesthetics has been at the forefront of non-surgical cosmetic treatments in London. Our clinic combines medical expertise with an artistic approach to deliver natural-looking results that enhance your unique features.</p>
                     <p>Our team of certified aesthetic practitioners are committed to providing safe, effective treatments using the latest technologies and highest quality products. We believe in a personalized approach, taking time to understand your goals and recommending treatments that align with your vision.</p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-certificate"></i>
-                            <h4>Certified Professionals</h4>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-heart"></i>
-                            <h4>Personalized Care</h4>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-flask"></i>
-                            <h4>Premium Products</h4>
-                        </div>
-                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Our clinic interior">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Clinic interior">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section" id="services">
+    <!-- Services -->
+    <section class="services" id="services">
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
-                <div class="underline"></div>
-                <p>We offer a comprehensive range of aesthetic treatments to address your unique needs</p>
             </div>
-            <div class="services-grid">
+            <div class="services-container">
+                <!-- Service 1 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-spa"></i>
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Microneedling treatment">
                     </div>
-                    <h3>Facials & Skin Treatments</h3>
-                    <ul>
-                        <li>HydraFacial</li>
-                        <li>Chemical Peels</li>
-                        <li>Microdermabrasion</li>
-                        <li>LED Light Therapy</li>
-                    </ul>
-                    <a href="https://booking.setmore.com/scheduleappointment/XXXXXXXX" class="btn">Book Now</a>
+                    <div class="service-content">
+                        <h3>Microneedling</h3>
+                        <p>Stimulate collagen production for smoother, younger-looking skin with our advanced microneedling treatments.</p>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">Treatment Details</div>
+                                <div class="accordion-content">
+                                    <p>Uses fine needles to create micro-channels in the skin, triggering natural healing processes. Improves texture, reduces scars and fine lines.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header">Duration & Results</div>
+                                <div class="accordion-content">
+                                    <p>60-90 minute sessions. Series of 3-6 treatments recommended. Results visible after 2-3 weeks, improving over months.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://booking.setmore.com" class="btn">Book Now</a>
+                    </div>
                 </div>
+                
+                <!-- Service 2 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-syringe"></i>
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Facials treatment">
                     </div>
-                    <h3>Injectables</h3>
-                    <ul>
-                        <li>Anti-Wrinkle Injections</li>
-                        <li>Dermal Fillers</li>
-                        <li>Lip Enhancements</li>
-                        <li>Profhilo</li>
-                    </ul>
-                    <a href="https://booking.setmore.com/scheduleappointment/XXXXXXXX" class="btn">Book Now</a>
+                    <div class="service-content">
+                        <h3>Facials</h3>
+                        <p>Customized facials designed to address your specific skin concerns and reveal a radiant complexion.</p>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">Treatment Options</div>
+                                <div class="accordion-content">
+                                    <p>HydraFacial, Deep Cleansing, Anti-Aging, Brightening, and Acne Treatment facials available.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header">Benefits</div>
+                                <div class="accordion-content">
+                                    <p>Deep cleansing, hydration, improved circulation, reduced signs of aging, and customized solutions for all skin types.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://booking.setmore.com" class="btn">Book Now</a>
+                    </div>
                 </div>
+                
+                <!-- Service 3 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Under eye treatment">
                     </div>
-                    <h3>Body Contouring</h3>
-                    <ul>
-                        <li>Cryolipolysis (Fat Freezing)</li>
-                        <li>Radio Frequency</li>
-                        <li>Cavitation</li>
-                        <li>Body Sculpting</li>
-                    </ul>
-                    <a href="https://booking.setmore.com/scheduleappointment/XXXXXXXX" class="btn">Book Now</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-eye"></i>
+                    <div class="service-content">
+                        <h3>Under Eye Treatments</h3>
+                        <p>Specialized treatments to brighten, depuff and rejuvenate the delicate under eye area.</p>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">Treatment Options</div>
+                                <div class="accordion-content">
+                                    <p>Includes fillers, PRP therapy, laser treatments, and specialized eye masks.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header">Results</div>
+                                <div class="accordion-content">
+                                    <p>Reduces dark circles, minimizes fine lines, and improves overall eye area appearance.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://booking.setmore.com" class="btn">Book Now</a>
                     </div>
-                    <h3>Advanced Treatments</h3>
-                    <ul>
-                        <li>Laser Hair Removal</li>
-                        <li>Microneedling</li>
-                        <li>PRP Therapy</li>
-                        <li>Permanent Makeup</li>
-                    </ul>
-                    <a href="https://booking.setmore.com/scheduleappointment/XXXXXXXX" class="btn">Book Now</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="gallery">
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
         <div class="container">
             <div class="section-title">
                 <h2>Our Work</h2>
-                <div class="underline"></div>
-                <p>See the transformative results we've achieved for our clients</p>
             </div>
-            <div class="gallery-grid">
+            <div class="gallery-container">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after facial treatment">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after facial">
                     <div class="gallery-overlay">
                         <h3>Facial Rejuvenation</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Lip enhancement results">
+                    <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after lips">
                     <div class="gallery-overlay">
                         <h3>Lip Enhancement</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Skin treatment results">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after skin">
                     <div class="gallery-overlay">
                         <h3>Skin Resurfacing</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Body contouring results">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after body">
                     <div class="gallery-overlay">
                         <h3>Body Contouring</h3>
                     </div>
@@ -180,95 +589,27 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>I've been coming to Luminous Aesthetics for over a year now and the results speak for themselves. The team is incredibly knowledgeable and makes you feel comfortable throughout every treatment.</p>
-                        <div class="client-info">
-                            <h4>Sarah Johnson</h4>
-                            <span>Regular Client</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>The HydraFacial treatment transformed my skin! After just one session, my complexion was brighter and more even. I can't recommend this clinic enough.</p>
-                        <div class="client-info">
-                            <h4>Emma Thompson</h4>
-                            <span>First-time Client</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>Professional, clean, and with amazing attention to detail. I trust Luminous with all my aesthetic needs and have never been disappointed.</p>
-                        <div class="client-info">
-                            <h4>Michaela Brown</h4>
-                            <span>Long-term Client</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <!-- Contact -->
+    <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
                 <h2>Contact Us</h2>
-                <div class="underline"></div>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>123 Beauty Lane, Kensington, London W8 5DL</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <p>+44 20 7123 4567</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>info@luminouseaesthetics.co.uk</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <p>Monday - Friday: 9:00 AM - 7:00 PM<br>Saturday: 10:00 AM - 5:00 PM<br>Sunday: Closed</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Beauty Lane, Kensington, London W8 5DL</p>
+                    <p><i class="fas fa-phone"></i> +44 20 7123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@luminouseaesthetics.co.uk</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 7:00 PM<br>Sat: 10:00 AM - 5:00 PM<br>Sun: Closed</p>
                 </div>
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" placeholder="Your Phone">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone">
+                        <textarea placeholder="Your Message" required></textarea>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
@@ -277,18 +618,18 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-container">
                 <div class="footer-col">
                     <h3>Luminous Aesthetics</h3>
-                    <p>Your premier destination for non-surgical cosmetic treatments in London. We're dedicated to helping you look and feel your best.</p>
+                    <p>Your premier destination for non-surgical cosmetic treatments in London.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -297,32 +638,69 @@
                 <div class="footer-col">
                     <h3>Services</h3>
                     <ul>
+                        <li><a href="#">Microneedling</a></li>
                         <li><a href="#">Facials</a></li>
-                        <li><a href="#">Injectables</a></li>
-                        <li><a href="#">Body Treatments</a></li>
-                        <li><a href="#">Laser Treatments</a></li>
+                        <li><a href="#">Under Eye Treatments</a></li>
+                        <li><a href="#">Chemical Peels</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to receive updates and special offers.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your Email">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 Luminous Aesthetics. All Rights Reserved.</p>
-                <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('active');
+                const content = header.nextElementSibling;
+                if (header.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    content.style.maxHeight = 0;
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
 
