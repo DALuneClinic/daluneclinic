@@ -6,420 +6,10 @@
     <title>DALune Clinic</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #9E7B9B;
-            --secondary: #D4C1D4;
-            --dark: #2D2D2D;
-            --light: #F9F6F9;
-            --accent: #C4A8C1;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--primary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        /* Hero */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding-top: 80px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        
-        /* About */
-        .about {
-            padding: 100px 0;
-            background: var(--light);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--primary);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-        }
-        
-        .about-img {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s;
-        }
-        
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Services */
-        .services {
-            padding: 100px 0;
-        }
-        
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .service-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .service-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .service-card:hover .service-img img {
-            transform: scale(1.1);
-        }
-        
-        .service-content {
-            padding: 25px;
-        }
-        
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .service-content p {
-            margin-bottom: 20px;
-        }
-        
-        .accordion {
-            margin-top: 15px;
-        }
-        
-        .accordion-item {
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .accordion-header {
-            padding: 10px 0;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-        }
-        
-        .accordion-header:after {
-            content: '+';
-            font-size: 1.2rem;
-        }
-        
-        .accordion-header.active:after {
-            content: '-';
-        }
-        
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding-left: 10px;
-        }
-        
-        /* Gallery */
-        .gallery {
-            padding: 100px 0;
-            background: var(--light);
-        }
-        
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .gallery-item {
-            position: relative;
-            height: 250px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        
-        .gallery-overlay h3 {
-            color: white;
-            transform: translateY(20px);
-            transition: transform 0.3s;
-        }
-        
-        .gallery-item:hover .gallery-overlay h3 {
-            transform: translateY(0);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 80px 0 20px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-col h3:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--primary);
-        }
-        
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-col ul li a {
-            color: #ccc;
-            transition: color 0.3s;
-        }
-        
-        .footer-col ul li a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-            }
-            
-            nav ul li {
-                margin: 0 10px;
-            }
-            
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-img {
-                order: -1;
-                margin-bottom: 30px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
+
     <header>
         <div class="container header-container">
             <div class="logo">DALune<span>Clinic</span></div>
@@ -430,24 +20,22 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="https://daluneclinic.setmore.com" class="btn">Book Now</a></li>
+                    <li><a href="https://daluneclinic.setmore.com" class="btn" target="_blank">Book Now</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h2>Discover Your Radiance</h2>
                 <p>Premium aesthetic treatments tailored to enhance your natural beauty</p>
-                <a href="https://daluneclinic.setmore.com" class="btn">Book Your Consultation</a>
+                <a href="https://daluneclinic.setmore.com" class="btn" target="_blank">Book Your Consultation</a>
             </div>
         </div>
     </section>
 
-    <!-- About -->
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
@@ -460,237 +48,123 @@
                     <p>Our team of certified aesthetic practitioners are committed to providing safe, effective treatments using the latest technologies and highest quality products. We believe in a personalized approach, taking time to understand your goals and recommending treatments that align with your vision.</p>
                 </div>
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Clinic interior">
+                    <img src="https://images.unsplash.com/photo-1576092762791-d07e80f00f28?auto=format&fit=crop&w=1350&q=80" alt="Comfortable and modern clinic interior">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-title">
-      <h2>Our Signature Treatments</h2>
-      <p>Experience the art of aesthetic perfection — bespoke treatments designed to elevate your natural beauty and confidence.</p>
-    </div>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Signature Treatments</h2>
+            </div>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1618644733430-9083204a2a16?auto=format&fit=crop&w=800&q=80" alt="Injectable treatments">
+                    </div>
+                    <div class="service-content">
+                        <h3>Injectables</h3>
+                        <p>Enhance your natural features with precision and care — smooth lines, restore volume, and redefine balance.</p>
+                        <div class="accordion">
+                            <div class="accordion-item"><div class="accordion-header">Botulinum Toxin</div><div class="accordion-content"><p>Targets fine lines and expression wrinkles on the forehead, frown lines and crow’s feet.<br><em>From £190 · 40 mins</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">Dermal Fillers</div><div class="accordion-content"><p>Natural volume restoration and definition — lips, chin, nasolabial folds.<br><em>From £150 · 50 mins</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">Lip Dissolving</div><div class="accordion-content"><p>Safely remove previous filler to refine and restore your natural lip contour.<br><em>£110 · 50 mins</em></p></div></div>
+                        </div>
+                        <a href="https://daluneclinic.setmore.com" class="btn" target="_blank">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1598603689283-91127d353b19?auto=format&fit=crop&w=800&q=80" alt="Skin booster treatment">
+                    </div>
+                    <div class="service-content">
+                        <h3>Skin Boosters & Biorevitalisation</h3>
+                        <p>Hydrate and renew your skin from within — improve elasticity, glow, and smoothness.</p>
+                        <div class="accordion">
+                            <div class="accordion-item"><div class="accordion-header">Profhilo / Jalupro / Seventy Hyal</div><div class="accordion-content"><p>Advanced boosters to deeply hydrate and stimulate collagen production.<br><em>£150–£200 · 40 mins</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">Ejal-40</div><div class="accordion-content"><p>Improves firmness and tone — ideal for dull or tired skin.<br><em>£150 · 40 mins</em></p></div></div>
+                        </div>
+                        <a href="https://daluneclinic.setmore.com" class="btn" target="_blank">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Facial treatment">
+                    </div>
+                    <div class="service-content">
+                        <h3>Advanced Facials</h3>
+                        <p>Signature facials designed to reveal luminous, healthy skin through deep rejuvenation and hydration.</p>
+                        <div class="accordion">
+                            <div class="accordion-item"><div class="accordion-header">DA LUNE Signature Glow</div><div class="accordion-content"><p>Exclusive luxury facial for instant radiance and hydration.<br><em>£120 · 60 mins</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">BioRePeel + Dermaplane</div><div class="accordion-content"><p>Dual treatment for resurfacing, brightening and smoother texture.<br><em>£90 · 50 mins</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">Microneedling</div><div class="accordion-content"><p>Stimulate collagen production for smoother, refined skin.<br><em>From £120 · 50–60 mins</em></p></div></div>
+                        </div>
+                        <a href="https://daluneclinic.setmore.com" class="btn" target="_blank">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Wellness and body treatments">
+                    </div>
+                    <div class="service-content">
+                        <h3>Wellness & Body</h3>
+                        <p>Enhance your wellbeing with vitamin infusions and fat-dissolving therapies tailored to you.</p>
+                        <div class="accordion">
+                            <div class="accordion-item"><div class="accordion-header">Lemon Bottle</div><div class="accordion-content"><p>Effective fat-dissolving solution for contouring and improved tone.<br><em>£80 · 30 mins</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">Vitamin B12</div><div class="accordion-content"><p>Energy and metabolism boost for overall vitality.<br><em>£30 · 20 mins</em></p></div></div>
+                        </div>
+                        <a href="https://daluneclinic.setmore.com" class="btn" target="_blank">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Laser treatment">
+                    </div>
+                    <div class="service-content">
+                        <h3>Laser & Skin Correction</h3>
+                        <p>Advanced technology for long-term results — targeting pigmentation, redness and unwanted hair.</p>
+                        <div class="accordion">
+                            <div class="accordion-item"><div class="accordion-header">Laser Hair Removal</div><div class="accordion-content"><p>Permanent hair reduction for face and body areas.<br><em>From £60 · 30–60 mins</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">Pigmentation / Redness</div><div class="accordion-content"><p>Targeted light therapy to even skin tone and texture.<br><em>£90 · 40 mins</em></p></div></div>
+                        </div>
+                        <a href="https://daluneclinic.setmore.com" class="btn" target="_blank">Book Now</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1596548438313-ce926a892b4b?auto=format&fit=crop&w=800&q=80" alt="Luxe skincare add-ons">
+                    </div>
+                    <div class="service-content">
+                        <h3>Luxe Add-ons</h3>
+                        <p>Elevate your treatment results with exclusive add-ons to enhance healing, glow, and overall rejuvenation.</p>
+                        <div class="accordion">
+                            <div class="accordion-item"><div class="accordion-header">Exosomes Infusion</div><div class="accordion-content"><p>Cellular regeneration and healing accelerator — perfect post-microneedling.<br><em>£50 add-on</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">LED Therapy</div><div class="accordion-content"><p>Red light therapy to calm inflammation and boost recovery.<br><em>£25 add-on</em></p></div></div>
+                            <div class="accordion-item"><div class="accordion-header">Hydrating Mask</div><div class="accordion-content"><p>Soothing luxury mask to finish your facial experience.<br><em>£15 add-on</em></p></div></div>
+                        </div>
+                        <a href="https://daluneclinic.setmore.com" class="btn" target="_blank">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="services-container">
-
-      <!-- 1. Injectables -->
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://cdn.pixabay.com/photo/2016/11/19/17/02/botox-1836553_1280.jpg" alt="Injectable treatments">
-        </div>
-        <div class="service-content">
-          <h3>Injectables</h3>
-          <p>Enhance your natural features with precision and care — smooth lines, restore volume, and redefine balance.</p>
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header">Botulinum Toxin</div>
-              <div class="accordion-content">
-                <p>Targets fine lines and expression wrinkles on the forehead, frown lines and crow’s feet.<br><em>From £190 · 40 mins</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">Dermal Fillers</div>
-              <div class="accordion-content">
-                <p>Natural volume restoration and definition — lips, chin, nasolabial folds.<br><em>From £150 · 50 mins</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">Lip Dissolving</div>
-              <div class="accordion-content">
-                <p>Safely remove previous filler to refine and restore your natural lip contour.<br><em>£110 · 50 mins</em></p>
-              </div>
-            </div>
-          </div>
-          <a href="https://daluneclinic.setmore.com" class="btn">Book Now</a>
-        </div>
-      </div>
-
-      <!-- 2. Skin Boosters -->
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://cdn.pixabay.com/photo/2016/03/27/21/16/face-1281738_1280.jpg" alt="Skin booster treatment">
-        </div>
-        <div class="service-content">
-          <h3>Skin Boosters & Biorevitalisation</h3>
-          <p>Hydrate and renew your skin from within — improve elasticity, glow, and smoothness.</p>
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header">Profhilo / Jalupro / Seventy Hyal</div>
-              <div class="accordion-content">
-                <p>Advanced boosters to deeply hydrate and stimulate collagen production.<br><em>£150–£200 · 40 mins</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">Ejal-40</div>
-              <div class="accordion-content">
-                <p>Improves firmness and tone — ideal for dull or tired skin.<br><em>£150 · 40 mins</em></p>
-              </div>
-            </div>
-          </div>
-          <a href="https://daluneclinic.setmore.com" class="btn">Book Now</a>
-        </div>
-      </div>
-
-      <!-- 3. Advanced Facials -->
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://cdn.pixabay.com/photo/2016/08/25/03/29/beauty-1619748_1280.jpg" alt="Facial treatment">
-        </div>
-        <div class="service-content">
-          <h3>Advanced Facials</h3>
-          <p>Signature facials designed to reveal luminous, healthy skin through deep rejuvenation and hydration.</p>
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header">DA LUNE Signature Glow</div>
-              <div class="accordion-content">
-                <p>Exclusive luxury facial for instant radiance and hydration.<br><em>£120 · 60 mins</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">BioRePeel + Dermaplane</div>
-              <div class="accordion-content">
-                <p>Dual treatment for resurfacing, brightening and smoother texture.<br><em>£90 · 50 mins</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">Microneedling</div>
-              <div class="accordion-content">
-                <p>Stimulate collagen production for smoother, refined skin.<br><em>From £120 · 50–60 mins</em></p>
-              </div>
-            </div>
-          </div>
-          <a href="https://daluneclinic.setmore.com" class="btn">Book Now</a>
-        </div>
-      </div>
-
-      <!-- 4. Wellness & Body -->
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://cdn.pixabay.com/photo/2017/08/06/09/41/wellness-2596343_1280.jpg" alt="Wellness and body treatments">
-        </div>
-        <div class="service-content">
-          <h3>Wellness & Body</h3>
-          <p>Enhance your wellbeing with vitamin infusions and fat-dissolving therapies tailored to you.</p>
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header">Lemon Bottle</div>
-              <div class="accordion-content">
-                <p>Effective fat-dissolving solution for contouring and improved tone.<br><em>£80 · 30 mins</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">Vitamin B12</div>
-              <div class="accordion-content">
-                <p>Energy and metabolism boost for overall vitality.<br><em>£30 · 20 mins</em></p>
-              </div>
-            </div>
-          </div>
-          <a href="https://daluneclinic.setmore.com" class="btn">Book Now</a>
-        </div>
-      </div>
-
-      <!-- 5. Laser & Skin Correction -->
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://cdn.pixabay.com/photo/2019/04/17/21/26/laser-4138135_1280.jpg" alt="Laser treatment">
-        </div>
-        <div class="service-content">
-          <h3>Laser & Skin Correction</h3>
-          <p>Advanced technology for long-term results — targeting pigmentation, redness and unwanted hair.</p>
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header">Laser Hair Removal</div>
-              <div class="accordion-content">
-                <p>Permanent hair reduction for face and body areas.<br><em>From £60 · 30–60 mins</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">Pigmentation / Redness</div>
-              <div class="accordion-content">
-                <p>Targeted light therapy to even skin tone and texture.<br><em>£90 · 40 mins</em></p>
-              </div>
-            </div>
-          </div>
-          <a href="https://daluneclinic.setmore.com" class="btn">Book Now</a>
-        </div>
-      </div>
-
-      <!-- 6. Luxe Add-ons -->
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://cdn.pixabay.com/photo/2020/05/16/13/25/face-5176877_1280.jpg" alt="Luxe skincare add-ons">
-        </div>
-        <div class="service-content">
-          <h3>Luxe Add-ons</h3>
-          <p>Elevate your treatment results with exclusive add-ons to enhance healing, glow, and overall rejuvenation.</p>
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header">Exosomes Infusion</div>
-              <div class="accordion-content">
-                <p>Cellular regeneration and healing accelerator — perfect post-microneedling.<br><em>£50 add-on</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">LED Therapy</div>
-              <div class="accordion-content">
-                <p>Red light therapy to calm inflammation and boost recovery.<br><em>£25 add-on</em></p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">Hydrating Mask</div>
-              <div class="accordion-content">
-                <p>Soothing luxury mask to finish your facial experience.<br><em>£15 add-on</em></p>
-              </div>
-            </div>
-          </div>
-          <a href="https://daluneclinic.setmore.com" class="btn">Book Now</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-    <!-- Gallery -->
     <section class="gallery" id="gallery">
         <div class="container">
             <div class="section-title">
                 <h2>Our Work</h2>
             </div>
             <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after facial">
-                    <div class="gallery-overlay">
-                        <h3>Facial Rejuvenation</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after lips">
-                    <div class="gallery-overlay">
-                        <h3>Lip Enhancement</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after skin">
-                    <div class="gallery-overlay">
-                        <h3>Skin Resurfacing</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Before and after body">
-                    <div class="gallery-overlay">
-                        <h3>Body Contouring</h3>
-                    </div>
-                </div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Result of a facial rejuvenation"><div class="gallery-overlay"><h3>Facial Rejuvenation</h3></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Result of a lip enhancement"><div class="gallery-overlay"><h3>Lip Enhancement</h3></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Result of a skin resurfacing"><div class="gallery-overlay"><h3>Skin Resurfacing</h3></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Result of body contouring"><div class="gallery-overlay"><h3>Body Contouring</h3></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
@@ -701,7 +175,7 @@
                     <h3>Get In Touch</h3>
                     <p><i class="fas fa-map-marker-alt"></i> 123 Beauty Lane, Kensington, London W8 5DL</p>
                     <p><i class="fas fa-phone"></i> +44 20 7123 4567</p>
-                    <p><i class="fas fa-envelope"></i> info@luminouseaesthetics.co.uk</p>
+                    <p><i class="fas fa-envelope"></i> info@daluneclinic.co.uk</p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 7:00 PM<br>Sat: 10:00 AM - 5:00 PM<br>Sun: Closed</p>
                 </div>
                 <div class="contact-form">
@@ -718,12 +192,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h3>Luminous Aesthetics</h3>
+                    <h3>DALune Clinic</h3>
                     <p>Your premier destination for non-surgical cosmetic treatments in London.</p>
                 </div>
                 <div class="footer-col">
@@ -739,10 +212,10 @@
                 <div class="footer-col">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">Microneedling</a></li>
-                        <li><a href="#">Facials</a></li>
-                        <li><a href="#">Under Eye Treatments</a></li>
-                        <li><a href="#">Chemical Peels</a></li>
+                        <li><a href="#services">Microneedling</a></li>
+                        <li><a href="#services">Facials</a></li>
+                        <li><a href="#services">Injectables</a></li>
+                        <li><a href="#services">Laser Hair Removal</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -755,53 +228,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Luminous Aesthetics. All Rights Reserved.</p>
+                <p>&copy; 2025 DALune Clinic. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Accordion functionality
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                header.classList.toggle('active');
-                const content = header.nextElementSibling;
-                if (header.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                } else {
-                    content.style.maxHeight = 0;
-                }
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 
