@@ -18,6 +18,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: var(--dark);
     line-height: 1.6;
+    overflow-x: hidden; /* Previene lo scroll orizzontale indesiderato */
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4 {
@@ -40,6 +45,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    transition: padding 0.3s ease;
 }
 
 .header-container {
@@ -102,7 +108,7 @@ nav ul li a:hover {
 /* Hero Section */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     text-align: center;
@@ -374,13 +380,14 @@ nav ul li a:hover {
 .contact-info p {
     margin-bottom: 15px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 .contact-info i {
     color: var(--primary);
     margin-right: 15px;
     width: 20px;
     text-align: center;
+    margin-top: 4px;
 }
 .contact-form form {
     display: flex;
@@ -464,53 +471,111 @@ footer {
     color: #aaa;
 }
 
-/* Responsive Styles */
+
+/* =============================================== */
+/* ========== RESPONSIVE STYLES (MOBILE) ========= */
+/* =============================================== */
+
+/* Tablet e cellulari grandi (fino a 768px) */
 @media (max-width: 768px) {
+    
+    /* Riduzione spaziature generali */
+    .about, .services, .gallery, .contact {
+        padding: 60px 0;
+    }
+
+    footer {
+        padding-top: 60px;
+    }
+
+    /* Header e Navigazione */
     .header-container {
         flex-direction: column;
+        gap: 15px;
     }
     
     nav ul {
-        margin-top: 20px;
         padding-left: 0;
+        flex-wrap: wrap; /* Permette al menu di andare a capo se non ci sta */
+        justify-content: center;
+        gap: 5px;
     }
     
     nav ul li {
-        margin: 0 10px;
+        margin: 0 10px; /* Margine orizzontale tra le voci */
     }
     
+    /* Hero Section */
     .hero {
-        height: 60vh;
+        height: 70vh;
     }
     .hero h2 {
         font-size: 2.5rem;
     }
+    .hero p {
+        font-size: 1.1rem;
+    }
     
+    /* Titoli delle sezioni */
+    .section-title h2 {
+        font-size: 2.2rem;
+    }
+    .about-text h3, .contact-info h3, .contact-form h3 {
+        font-size: 1.6rem;
+    }
+
+    /* Sezione About: immagine sopra, testo sotto */
     .about-content {
         flex-direction: column;
     }
-    
     .about-img {
-        order: -1;
+        order: -1; /* Mette l'immagine prima (sopra) del testo */
         margin-bottom: 30px;
     }
     
+    /* Sezione Contatti: info sopra, form sotto */
     .contact-content {
         flex-direction: column;
+        gap: 40px;
     }
 }
 
+/* Cellulari piccoli (fino a 480px) */
 @media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
-    }
+    
+    /* Header e Navigazione */
     nav ul li {
-        margin: 10px 0;
+        margin: 5px 10px; /* Aumenta lo spazio verticale */
     }
+
+    nav ul li a.btn {
+        padding: 8px 20px;
+    }
+
+    /* Hero Section */
     .hero h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Ancora più piccolo per schermi stretti */
     }
     .hero p {
         font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Titoli */
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text h3, .contact-info h3, .contact-form h3 {
+        font-size: 1.4rem;
+    }
+
+    /* Griglie */
+    .services-container, .gallery-container {
+        grid-template-columns: 1fr; /* Una sola colonna */
     }
 }
