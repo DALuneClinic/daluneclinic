@@ -1,10 +1,11 @@
 /* Global Variables */
 :root {
-    --primary: #9E7B9B;
-    --secondary: #D4C1D4;
+    /* NUOVI COLORI NUDE / SABBIA */
+    --primary: #AC8B78;   /* Beige Sabbia Caldo (per bottoni e titoli) */
+    --secondary: #EADCD3; /* Nude Chiaro */
     --dark: #2D2D2D;
     --light: #F9F6F9;
-    --accent: #C4A8C1;
+    --accent: #8F7160;    /* Sabbia più scuro (per l'hover) */
 }
 
 /* Basic Reset & Typography */
